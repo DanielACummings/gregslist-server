@@ -3,7 +3,7 @@ import Car from "../Models/Car.js"
 
 // @ts-ignore
 let _carApi = axios.create({
-  baseURL: "https://bcw-sandbox.herokuapp.com/api/cars",
+  baseURL: "/api/cars",
   timeout: 3000
 })
 
@@ -18,14 +18,14 @@ class CarService {
     //car is now an instance of the Car class
     let cars = _store.State.cars.map(c => new Car(c))
     cars.push(car)
-    _store.commit("cars",cars)
+    _store.commit("cars", cars)
   }
 
-  loadCars(){
+  loadCars() {
     // make GET request to api, then save the data to our state
-    _carApi.get().then(res =>{
+    _carApi.get().then(res => {
       console.log(res)
-      let cars = res.data.data.map(c => new Car(c))
+      let cars = res.data.map(c => new Car(c))
       _store.commit("cars", cars)
     })
 
