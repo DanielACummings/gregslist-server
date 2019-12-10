@@ -4,6 +4,7 @@ import cors from "cors";
 import bp from "body-parser";
 import DbContext from "./db/dbConfig";
 import CarController from "./controllers/CarsController";
+import JobController from "./controllers/JobsController"
 
 const port = process.env.PORT || 3000;
 
